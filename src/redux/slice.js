@@ -21,7 +21,7 @@ export const fetchCampersThunk = createAsyncThunk(
 export const fetchCamperByIdThunk = createAsyncThunk(
     'campers/fetchCamperById',
     async id => {
-        const response = await fetch(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers${id}`);
+        const response = await fetch(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`);
         return await response.json();
     }
 );

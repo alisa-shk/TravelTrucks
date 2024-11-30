@@ -21,6 +21,9 @@ const Catalog = () => {
 
     return (
         <div>
+            <div>
+                
+            </div>
             <h1>Catalog</h1>
             <ul>
                 {campers.map(camper => (
