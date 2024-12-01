@@ -31,7 +31,9 @@ const campersSlice = createSlice({
     initialState: {
         campers: [],
         selectedCamper: null,
+        shownCampers: [],
         filters: {},
+        tempFilters: {},
         favorites: [],
         loading: false,
         error: null,
@@ -42,9 +44,14 @@ const campersSlice = createSlice({
         },
         resetFilters(state) {
             state.filters = {};
+            state.tempFilters = {};
+        },
+        setTempFilters(state, action) {
+            state.tempFilters = action.payload;
         },
         resetCampers(state) {
             state.campers = [];
+            state.shownCampers = [];
         },
     },
     extraReducers: builder => {
@@ -56,6 +63,7 @@ const campersSlice = createSlice({
             .addCase(fetchCampersThunk.fulfilled, (state, action) => {
                 state.loading = false;
                 state.campers = action.payload;
+                state.shownCampers = action.payload.slice(0, 4);
             })
             .addCase(fetchCampersThunk.rejected, (state, action) => {
                 state.loading = false;
@@ -75,5 +83,5 @@ const campersSlice = createSlice({
     },
 });
 
-export const { setFilters, resetFilters, resetCampers } = campersSlice.actions;
+export const { setFilters, resetFilters, setTempFilters, resetCampers } = campersSlice.actions;
 export default campersSlice.reducer;

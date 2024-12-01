@@ -1,0 +1,44 @@
+.container {
+    padding: 260px 64px;
+    background-image:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%),
+    url(../../../public/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: calc(100vh - 72px);
+}
+
+.heading {
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 0.67em;
+    color: var(--inputs);
+}
+
+.text {
+    color: var(--inputs);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.33em;
+    margin-bottom: 40px;
+}
+
+.btn {
+    background: var(--button);
+    border: none;
+    border-radius: 200px;
+    width: 173px;
+    padding: 16px 48px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5em;
+    letter-spacing: -0.01em;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: var(--button-hover);
+}
