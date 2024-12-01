@@ -27,12 +27,76 @@
     object-fit: cover;
 }
 
+.camperTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .camperName {
     color: var(--Main, #101828);
     font-size: 24px;
     font-weight: 600;
     line-height: 1.33;
+    margin: 0;
 }
+
+.priceFav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.favBtn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.favBtn.active {
+    color: var(--button);
+}
+
+.favIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.favIcon.active {
+    fill: var(--button);
+}
+
+.camperRatLoc {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: baseline;
+}
+
+.camperRating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--main);
+    text-decoration: underline;
+}
+
+.camperLocation {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--main);
+}
+
 
 .camperFeatures {
     display: flex;

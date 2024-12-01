@@ -134,7 +134,7 @@ const Filters = () => {
                     >Search
                 </button>
                 <button
-                    className={s.searchButton}
+                    className={s.resetButton}
                     onClick={resetAllFilters}
                     >Reset
                 </button>

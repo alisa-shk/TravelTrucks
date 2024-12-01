@@ -34,7 +34,7 @@ const campersSlice = createSlice({
         shownCampers: [],
         filters: {},
         tempFilters: {},
-        favorites: [],
+        favorites: JSON.parse(localStorage.getItem('favorites')) || [],
         loading: false,
         error: null,
     },
@@ -52,6 +52,26 @@ const campersSlice = createSlice({
         resetCampers(state) {
             state.campers = [];
             state.shownCampers = [];
+        },
+        toggleFavorite(state, action) {
+            const newFavorite = action.payload;
+            const index = state.favorites.findIndex(fav => fav.id === newFavorite.id);
+            if (index === -1) {
+                state.favorites.push(newFavorite);
+            } else {
+                state.favorites.splice(index, 1);
+            }
+            localStorage.setItem('favorites', JSON.stringify(state.favorites));
+        },
+        removeFavorite: (state, action) => {
+            state.favorites = state.favorites.filter(
+                fav => fav.id !== action.payload.id
+            );
+            localStorage.setItem('favorites', JSON.stringify(state.favorites));
+        },
+        loadMoreCampers(state, action) {
+            const moreCampers = action.payload;
+            state.shownCampers = [...state.shownCampers, ...moreCampers];
         },
     },
     extraReducers: builder => {
@@ -83,5 +103,5 @@ const campersSlice = createSlice({
     },
 });
 
-export const { setFilters, resetFilters, setTempFilters, resetCampers } = campersSlice.actions;
+export const { setFilters, resetFilters, setTempFilters, resetCampers, loadMoreCampers, toggleFavorite, removeFavorite } = campersSlice.actions;
 export default campersSlice.reducer;
