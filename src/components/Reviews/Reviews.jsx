@@ -1,4 +1,6 @@
 import { useLocation } from "react-router-dom";
+import s from "./Reviews.module.css";
+import Rating from "./Rating.jsx";
 
 const Reviews = () => {
     const location = useLocation();
@@ -7,21 +9,23 @@ const Reviews = () => {
     if (!reviews || !reviews.length === 0) return <p>No reviews available</p>;
 
     return (
-        <div>
-            <ul>
+            <ul className={s.wrapper}>
                 {reviews.map((review, index) => (
                     <li key={index}>
-                        <div>{review.reviewer_name}</div>
+                        <div className={s.reviewHeader}>
+                            <div className={s.nameLetter}>{review.reviewer_name[0]}</div>
+                            <div className={s.reviewNameStars}>
+                                <div>{review.reviewer_name}</div>
+                                <div>
+                                    <Rating rating={review.reviewer_rating} />
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <p>{review.comment}</p>
                     </li>
-                // <div key={index} style={{ marginBottom: "16px" }}>
-                //     <p>
-                //     <strong>{review.reviewer_name}</strong> ({review.reviewer_rating}/5)
-                //     </p>
-                //     <p>{review.comment}</p>
-                // </div>
                 ))}
             </ul>
-        </div>
     );
 };
 

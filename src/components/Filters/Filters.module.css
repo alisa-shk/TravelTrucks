@@ -1,7 +1,3 @@
-.wrapper {
-
-}
-
 .location {
     display: flex;
     flex-direction: column;
@@ -100,6 +96,7 @@
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: -0.01em;
+    
 }
 
 .filterBtn.active {

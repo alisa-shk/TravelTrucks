@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchCamperByIdThunk } from "../../redux/slice.js";
 import clsx from "clsx";
 import s from "./Camper.module.css";
+import BookingForm from "../../components/BookingForm/BookingForm.jsx";
 
 
 const Camper = () => {
@@ -64,7 +65,10 @@ const Camper = () => {
                 <NavLink className={buildLinkClass} to="reviews" state={{ reviews: camper.reviews }}>Reviews</NavLink>
             </div>
             <div className={s.divider}></div>
-            <Outlet/>
+            <div className={s.featRevBook}>
+                <Outlet />
+                <BookingForm />
+            </div>
         </div>
     );
 };

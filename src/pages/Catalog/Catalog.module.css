@@ -114,6 +114,7 @@
     border-radius: 100px;
     background: var(--badges);
     color: var(--Main, #101828);
+    text-transform: capitalize;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
